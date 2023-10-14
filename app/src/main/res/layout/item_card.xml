@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp"
+        app:strokeColor="@color/blue"
+        android:background="@color/blue">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/bluedark">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/matkultugas"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="MATA KULIAH"
+                        android:textStyle="bold"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:gravity="center" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deskripsi Tugas : "
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardviewprofil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                app:strokeColor="@color/black"
+                app:strokeWidth="2dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="10dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/deskripsitugas"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Kerjakan BKPM acara 40 sampai 42, Screenshot kode beserta outputnya untuk di dokumentasikan pada laporan"
+                        android:textSize="14sp"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:gravity="center_horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Deadline : "
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tgltugas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10 Desember 2023"
+                            android:textSize="20sp"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                </TableRow>
+
+            </TableLayout>
+
+            <!-- Button SELESAI -->
+            <Button
+                android:id="@+id/button_selesai"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Klik Disini Jika Sudah Tuntas"
+                android:textSize="20sp"
+                android:paddingBottom="5dp"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="-10dp"
+                android:layout_marginTop="10dp"
+                app:cornerRadius="10dp"
+                android:layout_marginBottom="-5dp"
+                android:shadowRadius="3"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/green" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>
