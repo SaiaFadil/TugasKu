@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#2DB6CD</color>
+    <color name="gray">#BCBCBC</color>
+    <color name="lihatdetailcolor">#005EFF</color>
+    <color name="bluedark">#2d384c</color>
+    <color name="green">#003A02</color>
+    <color name="nav_item_color">@color/white</color>
+    <color name="nav_item_color_selected">@color/gray</color>
+
+</resources>
