@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/blue"
+        tools:context=".ProfilFragment">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardviewprofil"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:backgroundTint="@color/bluedark"
+            android:layout_marginTop="36dp"
+            android:layout_marginRight="20dp"
+            app:strokeColor="@color/blue"
+            android:layout_marginLeft="36dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginBottom="36dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="TENTANG APLIKASI"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:gravity="center"/>
+        </com.google.android.material.card.MaterialCardView>
+        <ScrollView
+            android:layout_marginTop="110dp"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:orientation="vertical">
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    app:cardCornerRadius="10dp"
+                    app:strokeColor="@color/blue"
+                    android:background="@color/blue">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/bluedark">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="130dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginLeft="-10dp"
+                                    android:src="@drawable/logosplash"/>
+                                <TextView
+                                    android:id="@+id/matkultugas"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="20dp"
+                                    android:paddingRight="20dp"
+                                    android:text="TugasKu"
+                                    android:textStyle="bold"
+                                    android:layout_marginBottom="20dp"
+                                    android:textSize="30sp"
+                                    android:textColor="@color/white"
+                                    android:gravity="center" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginLeft="20dp"
+                            app:strokeColor="@color/black"
+                            app:strokeWidth="2dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="5dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:padding="10dp"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/deskripsitugas"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Aplikasi ini bertujuan untuk pencatatan tugas dan membantu pengguna dalam mengelola tugas yang dimilikinya"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:textAlignment="textStart"
+                                    android:textColor="@color/black" />
+
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_height="wrap_content">
+
+
+                            <TableRow
+                                android:gravity="center_horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Developer     "
+                                        android:textStyle="bold"
+                                        android:textSize="20sp"
+                                        android:textAlignment="textStart"
+                                        android:textColor="@color/black" />
+                                    <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Kontak "
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="10dp"
+                                        android:textSize="20sp"
+                                        android:textAlignment="textStart"
+                                        android:textColor="@color/black" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Instagram"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="10dp"
+                                        android:textAlignment="textStart"
+                                        android:textColor="@color/black" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tiktok"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="10dp"
+                                        android:textAlignment="textStart"
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=" : "
+                                        android:textStyle="bold"
+                                        android:textSize="20sp"
+                                        android:textAlignment="textStart"
+                                        android:textColor="@color/black" />
+                                    <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=" : "
+                                        android:layout_marginTop="10dp"
+                                        android:textStyle="bold"
+                                        android:textSize="20sp"
+                                        android:textAlignment="textStart"
+                                        android:textColor="@color/black" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=" :   "
+                                        android:layout_marginTop="10dp"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold"
+                                        android:textAlignment="textStart"
+                                        android:textColor="@color/black" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=" : "
+                                        android:layout_marginTop="10dp"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold"
+                                        android:textAlignment="textStart"
+                                        android:textColor="@color/black" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Fadillah Wahyu N. "
+                                        android:textStyle="bold"
+                                        android:textSize="20sp"
+                                        android:textAlignment="textStart"
+                                        android:textColor="@color/black" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="089518917844"
+                                        android:textStyle="bold"
+                                        android:layout_marginTop="10dp"
+                                        android:textSize="20sp"
+                                        android:textAlignment="textStart"
+                                        android:textColor="@color/black" />
+
+                                        <ImageButton
+                                            android:id="@+id/buttonig"
+                                            android:layout_width="130dp"
+                                            android:layout_height="25dp"
+                                            android:layout_marginTop="10dp"
+                                            android:src="@drawable/igsayafadil"
+                                            android:background="@drawable/igsayafadil"
+                                            android:scaleType="fitXY"/>
+                                        <ImageButton
+                                            android:id="@+id/buttontiktok"
+                                            android:layout_width="130dp"
+                                            android:layout_height="25dp"
+                                            android:layout_marginTop="10dp"
+                                            android:src="@drawable/tiktoksayafadil"
+                                            android:background="@drawable/tiktoksayafadil"
+                                            android:scaleType="fitXY"/>
+
+                                </LinearLayout>
+
+                            </TableRow>
+
+
+                        </TableLayout>
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="#TugasKu"
+                            android:layout_gravity="center_horizontal"
+                            android:textStyle="bold"
+                            android:layout_marginTop="50dp"
+                            android:textSize="20sp"
+                            android:layout_marginBottom="20dp"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
