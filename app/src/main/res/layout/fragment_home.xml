@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".HomeFragment">
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -29,6 +30,15 @@
             android:textColor="@color/white"
             android:gravity="center"/>
     </com.google.android.material.card.MaterialCardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical">
     <com.google.android.material.card.MaterialCardView
 
         android:layout_width="match_parent"
@@ -47,8 +57,30 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Semester"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                />
+
+            <Spinner
+                android:id="@+id/semesterinput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_editext"
+                android:textColor="@color/black"
+                android:paddingLeft="8dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textSize="15dp" />
+ <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="MataKuliah"
                 android:textStyle="bold"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 />
@@ -62,12 +94,12 @@
                 android:textColor="@color/black"
                 android:paddingLeft="8dp"
                 android:paddingRight="5dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:textSize="15dp" />
 
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Deskripsi"
@@ -79,7 +111,7 @@
             <EditText
                 android:id="@+id/deskripsiinput"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bg_editext"
                 android:ems="10"
@@ -94,7 +126,7 @@
                 android:textSize="15dp" />
 
             <TextView
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Deadline"
@@ -125,7 +157,7 @@
         android:id="@+id/button_tambah"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="TAMBAH"
+        android:text="CATAT"
         android:textSize="20sp"
         app:cornerRadius="10dp"
         android:shadowRadius="3"
@@ -133,5 +165,9 @@
         android:textColor="@color/white"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:backgroundTint="@color/green"/>
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
