@@ -14,6 +14,7 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -28,13 +29,15 @@ import androidx.core.net.ParseException;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class HomeFragment extends Fragment {
 
-    private Spinner namamatkulInput;
+    private Spinner namamatkulInput,semesterInput;
     private EditText deskripsiInput, tanggalInput;
     private DatePickerDialog picker;
     private ProgressDialog progressDialog;
@@ -48,8 +51,12 @@ public class HomeFragment extends Fragment {
         progressDialog.setMessage("Sabar");
         progressDialog.setCancelable(false);
         progressDialog.setIcon(R.drawable.logosplash);
-
         tanggalInput = view.findViewById(R.id.tanggalinput);
+        namamatkulInput = view.findViewById(R.id.namamatkulinput);
+        semesterInput = view.findViewById(R.id.semesterinput);
+        int semester = semesterInput.getSelectedItemPosition();
+        semesterInput.setSelection(semester);
+
         tanggalInput.setInputType(InputType.TYPE_NULL);
 
         tanggalInput.setOnClickListener(new View.OnClickListener() {
@@ -69,26 +76,39 @@ public class HomeFragment extends Fragment {
                 picker.show();
             }
         });
-// Dalam metode onCreateView
-        namamatkulInput = view.findViewById(R.id.namamatkulinput);
-        String[] namaMatkulOptions = {"Pilih Mata Kuliahmu","Workshop Mobile Applications",  "Struktur Data", "Workshop Sistem Informasi Berbasis Web", "Workshop Kualitas Perangkat Lunak","Konsep Jaringan Komputer", "Matematika Diskrit", "Interpersonal Skill"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.custom_spinner_item, namaMatkulOptions) {
+
+
+
+        String[] semesterOption = {"Semester 1",  "Semester 2", "Semester 3", "Semester 4", "Semester 5", "Semester 6"};
+        ArrayAdapter<String> adaptersemester = new ArrayAdapter<String>(getActivity(), R.layout.custom_spinner_item, semesterOption) {
             @Override
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
                 View view = super.getDropDownView(position, convertView, parent);
-                if (position == 0) {
-                    // Set teks menjadi cetak tebal
+
                     ((TextView) view).setTypeface(null, Typeface.BOLD);
-                }
+
                 return view;
             }
         };
-        adapter.setDropDownViewResource(R.layout.custom_spinner_item);
-        namamatkulInput.setAdapter(adapter);
+        adaptersemester.setDropDownViewResource(R.layout.custom_spinner_item);
+        semesterInput.setAdapter(adaptersemester);
 
-// Set nilai default ke nol
-        namamatkulInput.setSelection(0);
+        // Set listener untuk perubahan pemilihan semester
+        semesterInput.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Mengambil semester yang dipilih
+                String selectedSemester = semesterInput.getSelectedItem().toString();
 
+                // Mengganti daftar mata kuliah sesuai dengan semester yang dipilih
+                updateMatkulOptions(selectedSemester);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Dijalankan jika tidak ada yang dipilih
+            }
+        });
 
         deskripsiInput = view.findViewById(R.id.deskripsiinput);
 
@@ -101,6 +121,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
         return view;
     }
 
@@ -110,10 +131,11 @@ public class HomeFragment extends Fragment {
         String deskripsi = deskripsiInput.getText().toString();
         String tanggal = tanggalInput.getText().toString();
 
-        if (matkul.equals("Pilih Mata Kuliahmu")) {
+        if (matkul.equals("Pilih Mata Kuliahmu")||matkul.equals("MataKuliah Belum Tersedia")) {
             Toast.makeText(getActivity(), "Harap Pilih MataKuliah kamu dengan benar!", Toast.LENGTH_LONG).show();
         } else if (deskripsi.isEmpty()) {
             deskripsiInput.setError("Harap isi deskripsi tugasmu");
+            deskripsiInput.requestFocus();
         } else if (tanggal.isEmpty()) {
             Toast.makeText(getActivity(), "Harap Pilih Tanggal Deadlinemu", Toast.LENGTH_LONG).show();
 
@@ -144,7 +166,8 @@ public class HomeFragment extends Fragment {
                         public void run() {
                             // Tutup ProgressDialog
                             progressDialog.dismiss();
-
+                            int semester = semesterInput.getSelectedItemPosition();
+                            semesterInput.setSelection(semester);
                     showSuccessDialog();
                         }
                     }, 2000);
@@ -155,8 +178,6 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(), "Tanggal tidak valid. Gunakan format dd/MM/yyyy", LENGTH_SHORT).show();
             }
         }
-
-
     private void showSuccessDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Data berhasil disimpan")
@@ -181,8 +202,33 @@ public class HomeFragment extends Fragment {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+    private void updateMatkulOptions(String selectedSemester) {
+        String[] namaMatkulOptions = {"MataKuliah Belum Tersedia"}; // Daftar mata kuliah yang akan ditampilkan
 
+        if (selectedSemester.equals("Semester 1")) {
+            // Isi daftar mata kuliah untuk Semester 1
+            namaMatkulOptions = new String[] {"Pilih Mata Kuliahmu","Workshop Basis Data",  "Workshop Pengembangan Perangkat Lunak","Konsep Basisdata", "Logika Dan Algoritma","Pemrograman Dasar", "Basic English", "Pendidikan Agama", "Pancasila"};
+        } else if (selectedSemester.equals("Semester 3")) {
+            // Isi daftar mata kuliah untuk Semester 3
+            namaMatkulOptions = new String[] {"Pilih Mata Kuliahmu","Workshop Mobile Applications",  "Struktur Data", "Workshop Sistem Informasi Berbasis Web", "Workshop Kualitas Perangkat Lunak","Konsep Jaringan Komputer", "Matematika Diskrit", "Interpersonal Skill"};
+        }
 
+        // Buat adapter baru dengan array yang telah diperbarui
+        ArrayAdapter<String> updatedAdapter = new ArrayAdapter<String>(getActivity(), R.layout.custom_spinner_item, namaMatkulOptions) {
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                if (position == 0) {
+                    // Set teks menjadi cetak tebal
+                    ((TextView) view).setTypeface(null, Typeface.BOLD);
+                }
+                return view;
+            }
+        };
+        updatedAdapter.setDropDownViewResource(R.layout.custom_spinner_item);
+        namamatkulInput.setAdapter(updatedAdapter);
+        namamatkulInput.setSelection(0);
+    }
     private boolean isValidDate(String date) {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             sdf.setLenient(false);
