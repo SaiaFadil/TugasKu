@@ -66,7 +66,7 @@ public class ProfilFragment extends Fragment {
         ImageButton btninstagram = view.findViewById(R.id.buttonig);
         ImageButton btntiktok = view.findViewById(R.id.buttontiktok);
         String linkig = "https://www.instagram.com/saia_fadill/";
-        String linktt = "https://www.tiktok.com/@saia_fadil?_t=8gUtiY3sJrW&_r=1";
+
         btninstagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +79,8 @@ public class ProfilFragment extends Fragment {
         btntiktok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(linktt));
+                String linktt = "https://www.tiktok.com/@saia_fadil?_t=8gUtiY3sJrW&_r=1";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linktt));
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.layout_in, R.anim.layout_out);
 
